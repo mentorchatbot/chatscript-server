@@ -1,0 +1,38 @@
+concept: ~직업 [직장 학교 직업]
+
+TOPIC: ~Job (~직업)
+#!x  This topic is a sample of a simple topic, with good indentation style.
+#!x  It is well commented with annotations for :abstract and :verify.
+
+t: 무슨 과를 가고 싶어?
+  a: (왜) 알려주려고.
+  a: (컴퓨터) 와~, 좋겠다~
+
+t: Job() 나는 컴퓨터 공학과야
+ a: (나도) 반가워~
+
+u: (<<여행 계획>>) reuse(Job)
+
+t: 이과계열이 좋아 문과 계열이 좋아? 
+    #! 이과
+    a: ( 이과 ) 이과 구나 나도 이과가 좋아 
+    #! 문과
+    a: ( 문과 ) 문과 구나 나도 문과가 좋아
+
+t: 무슨 종류의 직장 알고 싶어?
+    #! 컴퓨터 공학과
+    a: (컴퓨터) CODE 105098 
+    a: (관리직) CODE 100041
+    a: (경영) CODE 100042
+    a: (금융) CODE 100043
+    a: (교육) CODE 100044
+    a: (법률) CODE 100045
+    a: (보건) CODE 100046
+    a: (사회복지) CODE 100047
+    a: (문화) CODE 100048
+    a: (운전) CODE 100049
+    a: (영업) CODE 100050
+
+
+t: JOBASK ( ) 직업 정보를 알려줄게. 
+
