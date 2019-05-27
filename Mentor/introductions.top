@@ -1,22 +1,16 @@
+concept: ~왜 [왜죠 왜 뭔데 이유]
+concept: ~아니 [ㄴㄴ 아니야 아니 싫어 실어 시러 ㄴㄴㄴ ㄴ 별로 글쎄] 
+concept: ~응 [ㅇㅇ 맞아 응 ㅇㅇㅇ 맞음 그래 그래라 맘대로 ㅇㅋ 오케 오케이 ok]
+concept: ~알려줘 [알려 가르쳐 가르켜 보여 해]
 
-topic: ~INTRODUCTIONS (~emogoodbye ~emohello ~emohowzit name here )
 
-#!x will match on every return start of a conversation 
-t: ( %input<%userfirstline %input>0 ) 
-	^keep()  
-	[Welcome back] [Hello, again.][Glad you came back.][Hi.][Hi, again.]
+TOPIC: ~INTRODUCTIONS(안녕 ㅎㅇ 반가워 방가)
 
-#!x matches every time on startup of a new conversation
-t: ( %input<%userfirstline ) 
-	^keep()   
-	멘토본에 옷 것을 환영합니다.
+t: FIRST() mentorBot에 온걸 환영합니다. 우리는 직업,직군의 정보를 알려줄거에요 시작할까요?
 
-#!x issued only once, then erased
-t: 여기 온 적 있어?
-	#! yes
-	a: (응) 다시 온걸 환영해!
-	#! no
-	a: (아니) 처음 온걸 환영해!
+a:(~왜) [우리는 직업 Mentor bot 이니까요.싫으신가요? ][그게 우리의 일인걸요. 관두고 싶은가요?][직업,직군에 대해 별로 궁금하지 않은가봐요?]
+	b:(~아니) [그러면 시작해도 될까요?][정말 직업정보에 대해 궁금하신거죠?] ^setrejoinder(FIRST)
+a:(~아니) [안타까워요. 우리는 좋은 정보를 드릴 수 있는데.. 싫어요?][직업,직군에 대해 별로 궁금하지 않은가봐요?]
+	b:(~아니) [그러면 시작해도 될까요?][정말 직업정보에 대해 궁금하신거죠?] ^setrejoinder(FIRST)
 
-#! what is your name 
-u: ( 이름이 뭐야 ) 나는 멘토봇이야.
+a:([~응 ~알려줘])[그럼 시작할게요!][그럼 제 질문에 오타없이 잘 알려주세요!] ^respond(~직업)

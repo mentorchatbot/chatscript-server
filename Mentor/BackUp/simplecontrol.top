@@ -1,4 +1,4 @@
-﻿# This is the main control script. Start here to trace the ChatScript processing steps. 
+# This is the main control script. Start here to trace the ChatScript processing steps. 
 # When you see this "#", anything after this is a comment, it is not code that is executed. 
 # For example, this line is a comment.
 
@@ -10,7 +10,7 @@ $cs_token += #SPLIT_QUOTE | #NO_WITHIN | #STRICT_CASING
 $cs_token -= #DO_INTERJECTIONS
 
 # This sets the default topic to be using when running the system
-^addtopic(~INTRODUCTIONS)
+^addtopic(~직업)
 
 $cs_control_main = ~control
 # $cs_control_post = ~XPOSTPROCESS  # uncomment to enable talk
@@ -39,7 +39,7 @@ topic: ~control system ()
 
 # on startup, do introduction.  It takes the user input which starts a new conversation and looks for a response in  ~introductions
 u: ( %input<%userfirstline) 
-	gambit(~INTRODUCTIONS)
+	gambit(~직업)
 
 # if the user says shut up anywhere in the response, set the variable $shutup to 1, which is used later to stop using the talk output in windows
 u: (< shut up >) $shutup = 1
